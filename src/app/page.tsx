@@ -1,3 +1,9 @@
+import MaxWidthWrapper from "../components/MaxWidthWrapper";
+
 export default function Home() {
-	return <h1>HELLO WORLD</h1>;
+	return (
+		<MaxWidthWrapper>
+			<div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl"></div>
+		</MaxWidthWrapper>
+	);
 }
