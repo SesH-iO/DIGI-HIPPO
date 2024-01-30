@@ -58,3 +58,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .focus__outline-none {
+    @apply outline-none
+  }
+}
