@@ -1,9 +1,13 @@
 import Link from "next/link";
-import MaxWidthWrapper from "../MaxWidthWrapper";
-import {Icons} from "../Icons";
+
+// COMPONENTS
 import NavItems from "./NavItems";
-import {buttonVariants} from "../ui/button";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 import Cart from "../Cart";
+import {Icons} from "../Icons";
+
+// UI COMPONENTS
+import {buttonVariants} from "../ui/button";
 
 const Navbar = () => {
 	const user = null;

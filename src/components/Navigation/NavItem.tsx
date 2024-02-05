@@ -1,12 +1,17 @@
 "use client";
 
-import React from "react";
-import {Button} from "../ui/button";
-import {PRODUCT_CATEGORIES} from "@/config";
-import {ChevronDown} from "lucide-react";
-import {cn} from "../../lib/utils";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import {ChevronDown} from "lucide-react";
+
+// UTILS
+import {cn} from "../../lib/utils";
+
+// MOCK DATA
+import {PRODUCT_CATEGORIES} from "@/config";
+
+// UI COMPONENTS
+import {Button} from "../ui/button";
 
 type Category = (typeof PRODUCT_CATEGORIES)[number];
 

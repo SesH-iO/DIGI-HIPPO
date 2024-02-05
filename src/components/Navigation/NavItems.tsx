@@ -1,10 +1,14 @@
 "use client";
 import {useEffect, useRef, useState} from "react";
 
-import {PRODUCT_CATEGORIES} from "../../config";
+// HOOKS
+import {useClickAwayListener} from "@/hooks/useClickAwayListener";
 
+// MOCK DATA
+import {PRODUCT_CATEGORIES} from "@/config";
+
+// COMPONENTS
 import NavItem from "./NavItem";
-import {useClickAwayListener} from "../../hooks/useClickAwayListener";
 
 const NavItems = () => {
 	const [activeIndex, setActiveIndex] = useState<null | number>(null);
