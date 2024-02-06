@@ -1,7 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import {ArrowRight} from "lucide-react";
+import {ZodError} from "zod";
+import {toast} from "sonner";
+
+//
+import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 // HOOK FORMS
 import {useForm} from "react-hook-form";
@@ -32,7 +37,30 @@ const Page = () => {
 		resolver: zodResolver(AuthCredentialsValidator),
 	});
 
-	const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({});
+	const router = useRouter();
+
+	const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({
+		// * HANDLING API ERROR CASE
+		onError: (err) => {
+			if (err.data?.code === "CONFLICT") {
+				toast.error("This Email is Already in use. Sign in instead?");
+				return;
+			}
+
+			if (err instanceof ZodError) {
+				toast.error(err.issues[0].message);
+				return;
+			}
+
+			toast.error("Something went wrong. Please try again!");
+		},
+
+		// * HANDLING API SUCCESS CASE
+		onSuccess: ({sentToEmail}) => {
+			toast.success(`Verification email sent to ${sentToEmail}.`);
+			router.push("/verify-email?to=" + sentToEmail);
+		},
+	});
 
 	const onSubmit = ({email, password}: TAuthCredentialsValidator) => {
 		// * Sending email & password to server.
