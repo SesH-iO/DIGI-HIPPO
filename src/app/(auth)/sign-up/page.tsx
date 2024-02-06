@@ -21,6 +21,7 @@ import {Icons} from "../../../components/Icons";
 import {Button, buttonVariants} from "../../../components/ui/button";
 import {Label} from "../../../components/ui/label";
 import {Input} from "../../../components/ui/input";
+import {trpc} from "../../../trpc/client";
 
 const Page = () => {
 	const {
@@ -31,8 +32,11 @@ const Page = () => {
 		resolver: zodResolver(AuthCredentialsValidator),
 	});
 
+	const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({});
+
 	const onSubmit = ({email, password}: TAuthCredentialsValidator) => {
-		// TODO: Send this data to server.
+		// * Sending email & password to server.
+		mutate({email, password});
 	};
 
 	return (
@@ -73,6 +77,7 @@ const Page = () => {
 									<Label htmlFor="password">Password</Label>
 									<Input
 										{...register("password")}
+										type="password"
 										className={cn({
 											"focus-visible:ring-red-500": errors.password,
 										})}
