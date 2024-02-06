@@ -32,7 +32,7 @@ const Page = () => {
 	});
 
 	const onSubmit = ({email, password}: TAuthCredentialsValidator) => {
-		// TODO: Send this data to server
+		// TODO: Send this data to server.
 	};
 
 	return (
