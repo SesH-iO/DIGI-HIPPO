@@ -1,5 +1,6 @@
 import {PropsWithChildren} from "react";
 import type {Metadata} from "next";
+import {Toaster} from "sonner";
 
 // FONTS
 import {Inter} from "next/font/google";
@@ -13,7 +14,6 @@ import {cn} from "@/lib/utils";
 // COMPONENTS
 import Navbar from "@/components/Navigation/Navbar";
 import Providers from "@/components/Providers";
-import {Toaster} from "sonner";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -33,7 +33,7 @@ export default function RootLayout({children}: PropsWithChildren) {
 					</Providers>
 				</main>
 
-				<Toaster position="top-center" richColors />
+				<Toaster position="top-center" richColors closeButton />
 			</body>
 		</html>
 	);
