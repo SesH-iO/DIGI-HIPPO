@@ -31,7 +31,7 @@ const UserAccountNav = ({user}: {user: User}) => {
 				</div>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem asChild>
-					<Link href={"/admin"}>Seller Dashboard</Link>
+					<Link href={"/sell"}>Seller Dashboard</Link>
 				</DropdownMenuItem>
 
 				<DropdownMenuItem className="cursor-pointer" onClick={signOut}>

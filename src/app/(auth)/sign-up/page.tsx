@@ -18,6 +18,7 @@ import {
 	AuthCredentialsValidator,
 	TAuthCredentialsValidator,
 } from "../../../lib/validators/account-credentials-validator";
+import {trpc} from "../../../trpc/client";
 
 // COMPONENTS
 import {Icons} from "../../../components/Icons";
@@ -26,7 +27,6 @@ import {Icons} from "../../../components/Icons";
 import {Button, buttonVariants} from "../../../components/ui/button";
 import {Label} from "../../../components/ui/label";
 import {Input} from "../../../components/ui/input";
-import {trpc} from "../../../trpc/client";
 
 const Page = () => {
 	const {
