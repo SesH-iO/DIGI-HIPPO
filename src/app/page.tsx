@@ -71,3 +71,6 @@ export default function Home() {
 		</>
 	);
 }
+
+// admin@123 => seshan.io
+// user@123 => sesh.io
