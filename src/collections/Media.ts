@@ -1,4 +1,22 @@
-import {CollectionConfig} from "payload/types";
+import {Access, CollectionConfig} from "payload/types";
+import {User} from "../payload-types";
+
+// Return a access policy, can you read this image or not
+const isAdminOrHasAccessToImages = (): Access => {
+	return async ({req}) => {
+		const user = req.user as User | undefined;
+
+		if (!user) return false;
+
+		if (user.role === "admin") return true;
+
+		return {
+			user: {
+				equals: req.user.id,
+			},
+		};
+	};
+};
 
 export const Media: CollectionConfig = {
 	slug: "media",
@@ -9,7 +27,20 @@ export const Media: CollectionConfig = {
 			},
 		],
 	},
+	access: {
+		read: async ({req}) => {
+			const referer = req.headers.referer;
 
+			if (!req.user || !referer?.includes("sell")) {
+				return true;
+			}
+
+			return await isAdminOrHasAccessToImages()({req});
+		},
+
+		delete: isAdminOrHasAccessToImages(),
+		update: isAdminOrHasAccessToImages(),
+	},
 	admin: {
 		hidden: ({user}) => user.role !== "admin",
 	},

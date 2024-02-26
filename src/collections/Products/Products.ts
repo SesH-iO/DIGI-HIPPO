@@ -49,14 +49,14 @@ export const Products: CollectionConfig = {
 			required: true,
 		},
 
-		// {
-		// 	name: "product_files",
-		// 	label: "Product file(s)",
-		// 	type: "relationship",
-		// 	required: true,
-		// 	relationTo: "product_files",
-		// 	hasMany: false, // Change to true to accept multiple files
-		// },
+		{
+			name: "product_files",
+			label: "Product file(s)",
+			type: "relationship",
+			required: true,
+			relationTo: "product_files",
+			hasMany: false, // Change to true to accept multiple files
+		},
 
 		// Only Admin should be have access to update create and read this field
 		{
