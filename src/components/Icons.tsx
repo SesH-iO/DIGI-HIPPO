@@ -87,31 +87,31 @@ export const Icons = {
 		</svg>
 	),
 
-	// breadcrumb_separator: () => (
-	// 	<svg
-	// 		viewBox="0 0 20 20"
-	// 		fill="currentColor"
-	// 		aria-hidden="true"
-	// 		className="ml-2 h-5 w-5 flex-shrink-0 text-gray-300"
-	// 	>
-	// 		<path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
-	// 	</svg>
-	// ),
-
-	breadcrumb_separator: (props: LucideProps) => (
+	breadcrumb_separator: () => (
 		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			className="lucide lucide-chevron-right"
+			viewBox="0 0 20 20"
+			fill="currentColor"
+			aria-hidden="true"
+			className="ml-2 h-5 w-5 flex-shrink-0 text-gray-300"
 		>
-			<path d="m9 18 6-6-6-6" />
+			<path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
 		</svg>
 	),
+
+	// breadcrumb_separator: (props: LucideProps) => (
+	// 	<svg
+	// 		xmlns="http://www.w3.org/2000/svg"
+	// 		width="24"
+	// 		height="24"
+	// 		viewBox="0 0 24 24"
+	// 		fill="none"
+	// 		stroke="currentColor"
+	// 		strokeWidth="2"
+	// 		strokeLinecap="round"
+	// 		strokeLinejoin="round"
+	// 		className="lucide lucide-chevron-right"
+	// 	>
+	// 		<path d="m9 18 6-6-6-6" />
+	// 	</svg>
+	// ),
 };
